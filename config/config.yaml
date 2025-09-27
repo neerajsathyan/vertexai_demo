@@ -1,0 +1,31 @@
+# Vertex AI Project Configuration
+
+project:
+  name: vertex-ai-demo
+  description: "Demonstration project for Google Cloud Vertex AI"
+  version: "1.0.0"
+
+# Google Cloud Configuration
+google_cloud:
+  project_id: serwiz-staging
+  region: us-central1
+  staging_bucket: gs://serwiz-staging-bucket
+
+# Model Configuration
+model:
+  display_name: vertex-ai-demo-model
+  framework: scikit-learn
+  serving_container_image: gcr.io/cloud-aiplatform/prediction/sklearn-cpu.0-23:latest
+
+# Training Configuration
+training:
+  machine_type: n1-standard-4
+  replica_count: 1
+  max_replica_count: 3
+
+# Endpoint Configuration
+endpoint:
+  machine_type: n1-standard-2
+  min_replica_count: 1
+  max_replica_count: 3
+  traffic_percentage: 100
